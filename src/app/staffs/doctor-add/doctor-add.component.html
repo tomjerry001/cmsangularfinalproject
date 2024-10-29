@@ -1,0 +1,83 @@
+<div class="container">
+    <h3> New Doctor Info</h3>
+    <hr>
+
+    <form name="frmDoctor" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <!-- DoctorId (Auto-generated, readonly) -->
+        <div class="form-group">
+            <label>DoctorId</label>
+            <input type="text" readonly name="DoctorId" class="form-control"
+                [(ngModel)]="adminService.doctor.DoctorId">
+        </div>
+
+        <!-- Doctor Name -->
+        <div class="form-group">
+            <label>Doctor Name</label>
+            <input type="text" readonly name="DoctorName" #DoctorName="ngModel" class="form-control"
+                [(ngModel)]="adminService.doctor.DoctorName" minlength="3" maxlength="50" required
+                [ngClass]="{'is-invalid': DoctorName.touched && DoctorName.invalid}" />
+            <!-- Validation Error Message -->
+            
+            
+        </div>
+
+        <!-- Consultation Fee -->
+        <div class="form-group">
+            <label>Consultation Fee</label>
+            <input type="number" name="ConsultationFee" #ConsultationFee="ngModel" class="form-control"
+                [(ngModel)]="adminService.doctor.ConsultationFee" required min="0"
+                [ngClass]="{'is-invalid': ConsultationFee.touched && ConsultationFee.invalid}" />
+            <!-- Validation Error Message -->
+            <div class="validation-error" *ngIf="ConsultationFee.touched && ConsultationFee.invalid">
+                <div *ngIf="ConsultationFee.errors?.required">
+                    Consultation Fee is required!
+                </div>
+                <div *ngIf="ConsultationFee.errors?.min">
+                    Consultation Fee cannot be negative.
+                </div>
+            </div>
+        </div>
+
+          <!-- StaffId -->
+    <div class="form-group">
+        <label>StaffId</label>
+        <input type="number" name="StaffId" #StaffId="ngModel" class="form-control"
+          [(ngModel)]="adminService.doctor.StaffId" required
+          [ngClass]="{'is-invalid': StaffId.touched && StaffId.invalid}" />
+        <!-- Validation Error Message -->
+        <div class="validation-error" *ngIf="StaffId.touched && StaffId.invalid">
+          <div *ngIf="StaffId.errors?.required">
+            StaffId is required!
+          </div>
+        </div>
+      </div>
+  
+
+        <!-- Specialization -->
+        <div class="form-group">
+            <label>Specialization</label>
+            <select name="SpecializationId" id="SpecializationId" #SpecializationId="ngModel" class="form-control"
+                [(ngModel)]="adminService.doctor.SpecializationId" required>
+                <option value="0" disabled selected>---Select Specialization---</option>
+                <option *ngFor="let specialization of adminService.specialization" [value]="specialization.SpecializationId">{{specialization.SpecializationName}}</option>
+            </select>
+            <!-- Validation Error Message -->
+            <div class="validation-error" *ngIf="SpecializationId.touched && SpecializationId.invalid">
+                <div *ngIf="SpecializationId.errors?.required">
+                    Specialization is required!
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary form-control"
+                [disabled]="!(form.valid && form.dirty)">INSERT</button>
+        </div>
+        
+        <!-- Back Button -->
+        <div class="form-group">
+            <button type="button" class="btn btn-outline-info" (click)="goBack()">BACK</button>
+        </div>
+    </form>
+</div>

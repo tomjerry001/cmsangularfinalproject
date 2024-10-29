@@ -1,0 +1,71 @@
+<div class="container">
+    <br>
+    <h4>Create Your Account</h4>
+    <hr>
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+        <!-- Username -->
+        <div class="form-group">
+            <input 
+                type="text" 
+                placeholder="Enter Your Username" 
+                formControlName="username" 
+                class="form-control" 
+                required 
+            />
+        </div>
+        <!-- Validation Message for Username -->
+        <div class="validation-error" *ngIf="isSubmitted && formControls.username.errors">
+            <div *ngIf="formControls.username.errors.required">Username is required</div>
+            <div *ngIf="formControls.username.errors.minlength">Username must be at least {{ formControls.username.errors.minlength.requiredLength }} characters long.</div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <input 
+                type="password" 
+                placeholder="Enter Your Password" 
+                formControlName="password" 
+                class="form-control" 
+                required 
+            />
+        </div>
+        <!-- Validation Message for Password -->
+        <div class="validation-error" *ngIf="isSubmitted && formControls.password.errors">
+            <div *ngIf="formControls.password.errors.required">Password is required</div>
+            <div *ngIf="formControls.password.errors.minlength">Password must be at least {{ formControls.password.errors.minlength.requiredLength }} characters long.</div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+            <input 
+                type="password" 
+                placeholder="Confirm Your Password" 
+                formControlName="confirmPassword" 
+                class="form-control" 
+                required 
+            />
+        </div>
+        <!-- Validation Message for Confirm Password -->
+        <div class="validation-error" *ngIf="isSubmitted && formControls.confirmPassword.errors">
+            <div *ngIf="formControls.confirmPassword.errors.required">Confirm Password is required</div>
+            <div *ngIf="formControls.confirmPassword.errors.match">Passwords must match</div>
+        </div>
+
+        <!-- Submit -->
+        <div>
+            <a routerLink="/auth/login">
+                <button type="button" class="btn btn-lg btn-primary form-control">
+                    REGISTER
+                </button>
+            </a>
+        </div>
+
+        <!-- General Error Message -->
+        <div class="validation-error" *ngIf="error">{{ error }}</div>
+
+        <!-- Login Link -->
+        <div class="text-center mt-3">
+            <p>Already have an account? <a routerLink="/auth/login">Login here</a></p>
+        </div>
+    </form>
+</div>

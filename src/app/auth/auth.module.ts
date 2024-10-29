@@ -17,13 +17,16 @@ import { DoctornavbarComponent } from './doctornavbar/doctornavbar.component';
 import { PharmacistnavbarComponent } from './pharmacistnavbar/pharmacistnavbar.component';
 import { LabtechniciannavbarComponent } from './labtechniciannavbar/labtechniciannavbar.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, HomeComponent, AdminComponent, DoctorComponent, ReceptionistComponent, PharmacistComponent, LabtechnicianComponent, NavbarComponent, AdminnavbarComponent, ReceptionistnavbarComponent, DoctornavbarComponent, PharmacistnavbarComponent, LabtechniciannavbarComponent, PagenotfoundComponent],
+  declarations: [AuthComponent, LoginComponent, HomeComponent, AdminComponent, DoctorComponent, ReceptionistComponent, PharmacistComponent, LabtechnicianComponent, NavbarComponent, AdminnavbarComponent, ReceptionistnavbarComponent, DoctornavbarComponent, PharmacistnavbarComponent, LabtechniciannavbarComponent, PagenotfoundComponent, RegisterComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

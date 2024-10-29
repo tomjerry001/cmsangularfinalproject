@@ -1,1 +1,57 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Enter Your Credentials</h4>
+                    <hr>
+                    <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
+                        <!-- Username -->
+                        <div class="form-group">
+                            <label for="username" class="font-weight-bold">Username</label>
+                            <input id="username" type="text" placeholder="Enter Your User Name"
+                                formControlName="Username" class="form-control">
+                            <!-- Validation Message for UserName -->
+                            <div class="validation-error" *ngIf="isSubmitted && formControls.Username.errors">
+                                <div *ngIf="formControls.Username.errors.required" class="text-danger">
+                                    User Name is invalid or required
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password" class="font-weight-bold">Password</label>
+                            <input id="password" type="password" placeholder="Enter Your Password"
+                                formControlName="Password" class="form-control">
+                            <!-- Validation Message for Password -->
+                            <div class="validation-error" *ngIf="isSubmitted && formControls.Password.errors">
+                                <div *ngIf="formControls.Password.errors.required" class="text-danger">
+                                    Password is invalid or required
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">
+                                LOGIN
+                            </button>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div class="validation-error" *ngIf="error" class="text-danger mt-2">
+                            {{error}}
+                        </div>
+                    </form>
+
+                    <!-- Register Link -->
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="/auth/register">Register here</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
