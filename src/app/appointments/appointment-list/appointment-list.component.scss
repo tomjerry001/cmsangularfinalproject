@@ -1,0 +1,20 @@
+.custom-margin-search{
+    margin-top:20px;
+    margin-bottom:20px;
+    float:left;
+}
+
+.custom-margin-add{
+    margin-top:20px;
+    margin-bottom:20px;
+    float:right;
+}
+
+.footer {
+    position: fixed; /* Keeps the footer fixed on the page */
+    right: 0;        /* Aligns it to the right side */
+    padding: 10px;   /* Adds some padding */
+    background-color: #f1f1f1; /* Optional: Adds a background color */
+    z-index: 1000;   /* Makes sure it's on top of other content */
+}
+

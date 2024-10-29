@@ -17,13 +17,16 @@ import { DoctornavbarComponent } from './doctornavbar/doctornavbar.component';
 import { PharmacistnavbarComponent } from './pharmacistnavbar/pharmacistnavbar.component';
 import { LabtechniciannavbarComponent } from './labtechniciannavbar/labtechniciannavbar.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { Patient } from '../shared/patient';
+import { PatientsModule } from '../patients/patients.module';
 
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, HomeComponent, AdminComponent, DoctorComponent, ReceptionistComponent, PharmacistComponent, LabtechnicianComponent, NavbarComponent, AdminnavbarComponent, ReceptionistnavbarComponent, DoctornavbarComponent, PharmacistnavbarComponent, LabtechniciannavbarComponent, PagenotfoundComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    PatientsModule
   ]
 })
 export class AuthModule { }
