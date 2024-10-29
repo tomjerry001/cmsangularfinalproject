@@ -1,0 +1,168 @@
+<div class="container">
+  <h3>  Patient Registration Form</h3>
+  <hr>
+  <form name="frmPatient" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <!-- PatientId: Hidden -->
+    <div class="form-group">
+      <label>PatientId</label>
+      <input type="text" readonly name="PatientId" class="form-control"
+        [(ngModel)]="receptionistService.patient.patientId">
+    </div>
+
+    <!-- Patient Name -->
+    <div class="form-group">
+      <label>PatientName</label>
+      <input type="text" name="PatientName" #patientName="ngModel" class="form-control"
+        [(ngModel)]="receptionistService.patient.patientName" minlength="3" maxlength="25" required
+        [ngClass]="{'is-invalid': patientName.touched && patientName.invalid}" />
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="patientName.touched && patientName.invalid">
+        <div *ngIf="patientName.errors?.required">
+          Patient Name is required!
+        </div>
+      </div>
+    </div>
+
+    <!-- Gender Field using Radio Buttons -->
+    <div class="form-group">
+      <label>Gender</label>
+      <div>
+        <label>
+          <input type="radio" name="gender" [(ngModel)]="receptionistService.patient.gender" value="Male" required />
+          Male
+        </label>
+        <label>
+          <input type="radio" name="gender" [(ngModel)]="receptionistService.patient.gender" value="Female" required />
+          Female
+        </label>
+        <label>
+          <input type="radio" name="gender" [(ngModel)]="receptionistService.patient.gender" value="Other" required />
+          Other
+        </label>
+      </div>
+
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="receptionistService.patient.gender === ''">
+        <div *ngIf="!receptionistService.patient.gender">
+          Gender is required!
+        </div>
+      </div>
+    </div>
+
+    <!-- DOB -->
+    <div class="form-group">
+      <label>DOB</label>
+      <input type="date" name="dob" #dob="ngModel" class="form-control" [(ngModel)]="receptionistService.patient.dob"
+        required
+        [ngClass]="{'is-invalid': dob.touched && (dob.invalid || isFutureDate(receptionistService.patient.dob))}" />
+
+      <!-- Validation Error Message -->
+      <div class="validation-error"
+        *ngIf="dob.touched && (dob.invalid || isFutureDate(receptionistService.patient.dob))">
+        <div *ngIf="dob.errors?.required">
+          DOB is required!
+        </div>
+        <div *ngIf="isFutureDate(receptionistService.patient.dob)">
+          DOB cannot be a future date!
+        </div>
+      </div>
+    </div>
+
+    <!-- Blood Group -->
+    <div class="form-group">
+      <label>Blood Group:</label>
+      <select name="bloodGroup" id="bloodGroup" #bloodGroup="ngModel" class="form-control"
+        [(ngModel)]="receptionistService.patient.bloodGroup" required>
+        <option value="" selected disabled>---Select Blood Group---</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+      </select>
+
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="bloodGroup.touched && bloodGroup.invalid">
+        <div *ngIf="bloodGroup.errors?.required">
+          Blood Group is required!
+        </div>
+      </div>
+    </div>
+
+    <!-- PhoneNumber -->
+    <div class="form-group">
+      <label>PhoneNumber</label>
+      <input type="text" name="phoneNumber" #phoneNumber="ngModel" class="form-control"
+        [(ngModel)]="receptionistService.patient.phoneNumber" minlength="10" maxlength="10" required
+        pattern="^[6-9][0-9]{9}$" [ngClass]="{'is-invalid': phoneNumber.touched && phoneNumber.invalid}" />
+
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="phoneNumber.touched && phoneNumber.invalid">
+        <div *ngIf="phoneNumber.errors?.required">
+          Phone number is required!
+        </div>
+        <div *ngIf="phoneNumber.errors?.minlength || phoneNumber.errors?.maxlength">
+          Phone number must be exactly 10 digits!
+        </div>
+        <div *ngIf="phoneNumber.errors?.pattern">
+          Phone number must start with 6, 7, 8, or 9 and be 10 digits long!
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" name="address" #address="ngModel" class="form-control"
+        [(ngModel)]="receptionistService.patient.address" minlength="8" maxlength="50" required
+        [ngClass]="{'is-invalid': address.touched && address.invalid}" />
+
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="address.touched && address.invalid">
+        <div *ngIf="address.errors?.required">
+          Address is required!
+        </div>
+        <div *ngIf="address.errors?.minlength">
+          Address must be at least 8 characters long!
+        </div>
+        <div *ngIf="address.errors?.maxlength">
+          Address must be less than 50 characters long!
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" #email="ngModel" class="form-control"
+        [(ngModel)]="receptionistService.patient.email" minlength="8" maxlength="50" required
+        [ngClass]="{'is-invalid': email.touched && email.invalid}" />
+
+      <!-- Validation Error Message -->
+      <div class="validation-error" *ngIf="email.touched && email.invalid">
+        <div *ngIf="email.errors?.required">
+          Email is required!
+        </div>
+        <div *ngIf="email.errors?.minlength">
+          Email must be at least 8 characters long!
+        </div>
+        <div *ngIf="email.errors?.maxlength">
+          Email must be less than 50 characters long!
+        </div>
+        <div *ngIf="email.errors?.email">
+          Please enter a valid email address!
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-primary form-control" [disabled]="!(form.valid && form.dirty)">
+        INSERT
+      </button>
+    </div>
+  </form>
+</div>

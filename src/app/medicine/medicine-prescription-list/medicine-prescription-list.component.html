@@ -1,0 +1,55 @@
+<div class="container">
+    <!--List Medicine Prescription-->
+    <div class="header">
+        <div class="row">
+            <!--Search Medicine button-->
+            <div class="col-sm-8">
+                <input type="search" class="form-control custom-margin-search" 
+                placeholder="Search Text here" [(ngModel)] = "searchTerm"
+                (input)="filterMedicinePrescriptions()"> 
+            </div>
+            <!-- Medicine-->
+            <div class="col-sm-4">
+                <a [routerLink]="['/medicines/list']" role="button" class="btn btn-outline-primary custom-margin-add">
+                    <i class="fa fa-plus fa-lg"></i>&nbsp; Medicines</a>
+            </div>
+        </div>       
+    </div>
+    
+    <!--List Medicine Prescription--> 
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>ID</th>
+            <th>Patient Name</th>
+            <th>Medicine Name</th>
+            <th>Duration</th>
+            <th>Price Per Unit</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+           
+            <tr *ngFor="let medicinePrescription of filteredMedicinePrescriptions  |
+            paginate: { itemsPerPage: 3, currentPage: page }">
+                <td>{{medicinePrescription.medicinePrescriptionId}}</td>
+                <td>{{medicinePrescription.patientName}}</td>
+                <td>{{medicinePrescription.medicineName}}</td>
+                <td>{{medicinePrescription.duration}}</td>
+                <td>{{medicinePrescription.pricePerUnit}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-info"
+                    (click) = "getMedicinePrescriptionsByPatientAndAppointment(MedicinePrescriptionDto)">
+                    <i class="fa fa-eye"></i></button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--Footer-->
+    <div class="footer">
+        <pagination-controls (pageChange)="page = $event" class="float-right"></pagination-controls>
+    </div>
+
+</div>
+
+

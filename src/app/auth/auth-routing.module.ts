@@ -10,6 +10,7 @@ import { LabtechnicianComponent } from './labtechnician/labtechnician.component'
 import { DoctorComponent } from './doctor/doctor.component';
 import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
+
   {path: 'login', component: LoginComponent},  
   {path: 'home', component: HomeComponent},
   {path: 'admin', component: AdminComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'labtechnician', component: LabtechnicianComponent},
   {path: 'pagenotfound', component: PagenotfoundComponent},
   {path: 'register', component: RegisterComponent}
+
 ];
 
 @NgModule({

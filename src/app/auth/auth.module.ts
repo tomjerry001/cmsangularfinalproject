@@ -19,6 +19,8 @@ import { LabtechniciannavbarComponent } from './labtechniciannavbar/labtechnicia
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { Patient } from '../shared/patient';
+import { PatientsModule } from '../patients/patients.module';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PatientsModule
   ]
 })
 export class AuthModule { }
