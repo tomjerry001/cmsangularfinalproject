@@ -1,0 +1,51 @@
+.container {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.custom-checkbox {
+    transform: scale(2);  
+    margin-right: 8px;      
+}
+h3 {
+    color: rgb(12, 127, 127);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border: 1px solid rgb(12, 127, 127);
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: rgb(0, 123, 255);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.validation-error {
+    color: red;
+    font-size: 0.9em;
+}
+
+.btn-primary {
+    background-color: rgb(12, 127, 127);
+    border-color: rgb(12, 127, 127);
+}
+
+.btn-primary:hover {
+    background-color: rgb(10, 100, 100);
+    border-color: rgb(10, 100, 100);
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Default secondary button color */
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker shade on hover */
+}

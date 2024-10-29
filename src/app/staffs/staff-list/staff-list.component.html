@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="header">
+        <div class="row">
+            <!-- Search Staff -->
+            <div class="col-sm-6">
+                <input type="search" class="form-control custom-margin-search" placeholder="Search Staff here"
+                    [(ngModel)]="searchTerm" (input)="filterStaffs()">
+            </div>
+            <div class="col-sm-6 text-right">
+                <a [routerLink]="['/staffs/add']" role="button" class="btn btn-outline-info custom-margin-add">
+                    <i class="fa fa-user-plus fa-lg"></i>&nbsp;Add Staff
+                </a>
+                <a href="auth/login" target="_self"><button class="btn btn-outline-info">Logout</button></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- List Staff -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Staff ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Joining Date</th>
+                <th>Salary</th>
+                <th>Experience</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Qualification</th>
+                <th>In Service</th>
+                <th>Role ID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let staff of filteredStaffs | paginate: { itemsPerPage: 3, currentPage: page }">
+                <td>{{staff.StaffId}}</td>
+                <td>{{staff.FirstName}}</td>
+                <td>{{staff.LastName}}</td>
+                <td>{{staff.Gender}}</td>
+                <td>{{staff.JoiningDate | date: 'dd/MM/yyyy'}}</td>
+                <td>{{staff.Salary}}</td>
+                <td>{{staff.Experience}}</td>
+                <td>{{staff.PhoneNumber}}</td>
+                <td>{{staff.Email}}</td>
+                <td>{{staff.Qualification}}</td>
+                
+                <!-- Toggle Button for In Service -->
+                <td>
+                    <button type="button" class="btn btn-sm" 
+                            [ngClass]="staff.Inservice ? 'btn-info' : 'btn-outline-danger'"
+                            (click)="toggleInService(staff)">
+                        {{ staff.Inservice ? 'Active' : 'Inactive' }}
+                    </button>
+                </td>
+                
+                <td>{{staff.RoleId}}</td>
+                <td>
+                    <!-- Edit Button -->
+                    <button type="button" class="btn btn-sm btn-outline-info" (click)="editStaff(staff)">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    &nbsp;
+                    <!-- Doctor Management Button -->
+                    <button type="button" class="btn btn-outline-info" 
+                        [disabled]="staff.RoleId !== 3"
+                        (click)="addDoctor(staff)">
+                        Manage Doctor
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Footer Pagination -->
+    <div class="footer" align="right">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+    
+    <!-- Back Button -->
+    <div class="form-group">
+        <button type="button" class="btn btn-outline-info" (click)="goBack()">BACK</button>
+    </div>
+</div>

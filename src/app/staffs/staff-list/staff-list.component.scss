@@ -1,0 +1,96 @@
+body {
+    background-color: #f0f2f5; /* Light background color */
+}
+
+.container {
+    max-width: 1200px; /* Limit the width of the container */
+    margin: 0 auto; /* Center the container */
+}
+.background-container {
+    background-image: url('/assets/image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;  
+    width: 100%; 
+  }
+  
+
+.header {
+    margin-bottom: 20px; /* Spacing below the header */
+    padding: 15px; /* Padding for the header */
+    background-color: #ffffff; /* White background for header */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.custom-margin-search {
+    margin-bottom: 10px; /* Space below the search input */
+}
+
+.custom-margin-add {
+    margin-left: 10px; /* Space between buttons */
+}
+
+.table {
+    margin-bottom: 20px; /* Space below the table */
+    background-color: #ffffff; /* White background for the table */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.table th, .table td {
+    text-align: center; /* Center align table text */
+    vertical-align: middle; /* Center vertically */
+    padding: 12px; /* Padding for cells */
+}
+
+.table th {
+    background-color: rgb(41, 124, 124); /* Custom color for header */
+    color: #ffffff; /* White text color for header */
+}
+
+.table td {
+    border-top: 1px solid #e9ecef; /* Light border for table cells */
+}
+
+.btn-outline-info {
+    color: rgb(41, 124, 124); /* Custom color for edit button */
+    border-color: rgb(41, 124, 124); /* Button border color */
+}
+
+.btn-outline-info:hover {
+    background-color: rgb(41, 124, 124); /* Change background on hover */
+    color: white; /* White text on hover */
+}
+
+.btn-outline-success {
+    color: #28a745; /* Custom color for success button */
+    border-color: #28a745; /* Button border color */
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745; /* Change background on hover */
+    color: white; /* White text on hover */
+}
+
+.footer {
+    margin-top: 20px; /* Spacing above the footer */
+}
+
+.pagination-controls {
+    display: inline-block; /* Align pagination */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .custom-margin-search {
+        margin-bottom: 0; /* Reset margin for mobile */
+    }
+
+    .custom-margin-add {
+        margin-left: 0; /* Reset margin for mobile */
+        display: block; /* Stack buttons on mobile */
+        margin-top: 10px; /* Space above buttons */
+    }
+}

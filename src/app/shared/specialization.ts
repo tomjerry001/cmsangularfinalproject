@@ -1,5 +1,12 @@
 export class Specialization {
-    specializationId:number=0;
-    specializationName:string;
+
+    SpecializationId :  number = 0;
+    SpecializationName : string = '';
+
 }
+
+//     specializationId:number=0;
+//     specializationName:string;
+// }
+
 

@@ -1,1 +1,32 @@
-<p>admin works!</p>
+
+<app-adminnavbar></app-adminnavbar>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        
+        <!-- Staff List Card -->
+        <div class="col-md-3 mb-3">
+            <div class="card" style="width: 100%;">
+                <img src="/assets/stafflist.png" class="card-img-top" alt="Staff List">
+                <div class="card-body">
+                    <h5 class="card-title">Staff List</h5>
+                    <p class="card-text">Manage your staff here!</p>
+                    <a [routerLink]="['/staffs/list']" class="btn btn-danger">Go ahead!</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add Staff Card -->
+        <div class="col-md-3 mb-3">
+            <div class="card" style="width: 100%;">
+                <img src="/assets/addstaff.png" class="card-img-top" alt="Add Staff">
+                <div class="card-body">
+                    <h5 class="card-title">Add Staff</h5>
+                    <p class="card-text">You can add staff here!</p>
+                    <a [routerLink]="['/staffs/add']" class="btn btn-danger">Go ahead, add!</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>

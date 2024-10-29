@@ -2,11 +2,20 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import{PatientsComponent} from './patients/patients.component';
 import { AuthComponent } from './auth/auth.component';
+
+import { StaffsComponent } from './staffs/staffs.component';
+import { DoctorsComponent } from './staffs/doctors.component';
+
+const routes: Routes = [
+  //Empty Route
+{path:'',redirectTo:'auth/home', pathMatch:'full'},
+
 import { MedicineComponent } from './medicine/medicine.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
 
 const routes: Routes = [
+
 
   // Empty Route (Redirect to login page)
   //{ path: 'appointments/list', component: AppointmentListComponent },
@@ -56,7 +65,24 @@ const routes: Routes = [
         .then(x => x.PatientsModule)
   },
 
+
+//Staffs -- lazy loading
+{path:'staffs',component:StaffsComponent,
+  loadChildren: () => 
+   import('./staffs/staffs.module')
+    .then(x=>x.StaffsModule)
+},
+
+//doctors--lazy loading
+{path:'doctors',component:DoctorsComponent,
+  loadChildren: () => 
+   import('./staffs/staffs.module')
+    .then(x=>x.StaffsModule)
+},
+
+
   {path:'',redirectTo:'auth/pagenotfound',pathMatch:'full'}
+
 
 ];
 
