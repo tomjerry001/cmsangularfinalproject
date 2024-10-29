@@ -1,0 +1,56 @@
+<div class="container">
+    <!--List Test Prescription-->
+    <div class="header">
+        <div class="row">
+            <!--Search Test button-->
+            <div class="col-sm-8">
+                <input type="search" class="form-control custom-margin-search" 
+                placeholder="Search Text here" [(ngModel)] = "searchTerm"
+                (input)="filterTestPrescriptions()"> 
+            </div>
+            <!-- Test-->
+            <div class="col-sm-4">
+                <a [routerLink]="['/tests/list']" role="button" class="btn btn-outline-primary custom-margin-add">
+                    <i class="fa fa-plus fa-lg"></i>&nbsp; Tests</a>
+            </div>
+        </div>       
+    </div>
+    
+    <!--List Test Prescription--> 
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>ID</th>
+            <th>Patient Name</th>
+            <th>Test Name</th>
+            <th>Test Type</th>
+            <th>Test Amount</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+           
+            <tr *ngFor="let testPrescription of filteredTestPrescriptions  |
+            paginate: { itemsPerPage: 3, currentPage: page }">
+                <td>{{testPrescription.testPrescriptionId}}</td>
+                <td>{{testPrescription.patientName}}</td>
+                <td>{{testPrescription.testName}}</td>
+                <td>{{testPrescription.testType}}</td>
+                <td>{{testPrescription.testAmount}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-info"
+                    (click) = "updateTest(testPrescription)">
+                    <i class="fa fa-eye"></i></button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--Footer-->
+    <div class="footer">
+        <pagination-controls (pageChange)="page = $event" class="float-right"></pagination-controls>
+    </div>
+
+</div>
+
+
+

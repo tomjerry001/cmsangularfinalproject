@@ -1,3 +1,11 @@
+// export class TestPrescription {
+//     testPrescriptionId: number=0;
+//     patientName: string;
+//     notes: string;
+//     testName: string;
+//     testType: string;
+//     testAmount: number=0; 
+    
 import { Appointment } from './appointment';
 import { Prescription } from './prescription';
 import { TestReport } from './test-report';
@@ -15,4 +23,5 @@ export class TestPrescription {
 
     // Collections
     TestReports: TestReport[] = [];
+
 }

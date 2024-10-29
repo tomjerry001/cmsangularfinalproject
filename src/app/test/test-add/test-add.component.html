@@ -1,0 +1,70 @@
+<div class="container">
+    <h3>New Test Info</h3>
+    <hr>
+
+    <!--Template Driven Form-->
+    <form name="frmTest" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <!--testId : hidden-->
+        <div class="form-group">
+            <label>Test ID :</label>
+            <input type="text" readonly name="testId" class="form-control"
+            [(ngModel)]="labtechnicianService.testMaster.testId">
+        </div>
+        <!--Test Name : testName-->
+        <div class="form-group">
+            <label>Test Name :</label>
+            <input type="text" name="testName" #testName="ngModel" class="form-control"
+            [(ngModel)]="labtechnicianService.testMaster.testName"
+            minlength="3" maxlength="25" required 
+            [ngClass]="{'is-invalid' : testName.touched && testName.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="testName.touched && testName.invalid">
+                <div *ngIf="testName.errors.required">
+                    Test Name is invalid or required!
+                </div>
+            </div>           
+        </div>
+
+        <!--Test Type : testType-->
+        <div class="form-group">
+            <label>Test Type :</label>
+            <input type="text" name="testType" #testType="ngModel" class="form-control"
+            [(ngModel)]="labtechnicianService.testMaster.testType"
+            minlength="3" maxlength="25" required 
+            [ngClass]="{'is-invalid' : testType.touched && testType.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="testType.touched && testType.invalid">
+                <div *ngIf="testType.errors.required">
+                    Test Type  is invalid or required!
+                </div>
+            </div>           
+        </div>
+
+        <!--Test Amount : amount-->
+        <div class="form-group">
+            <label>Test Amount :</label>
+            <input type="text" name="amount" #amount="ngModel" class="form-control"
+            [(ngModel)]="labtechnicianService.testMaster.amount"
+            minlength="3" maxlength="25" required 
+            [ngClass]="{'is-invalid' : amount.touched && amount.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="amount.touched && amount.invalid">
+                <div *ngIf="amount.errors.required">
+                    Test Amount is invalid or required!
+                </div>
+            </div>           
+        </div>
+       
+        
+       
+        <!--Submit-->
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary form-control"
+            [disabled]="!(form.valid && form.dirty)">INSERT</button>
+        </div>
+    </form>
+</div>
+

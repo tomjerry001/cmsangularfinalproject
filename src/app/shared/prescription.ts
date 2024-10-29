@@ -23,4 +23,5 @@ export class Prescription {
     MedicinePrescriptions: MedicinePrescription[] = [];
     TestBillSummaries: TestBillSummary[] = [];
     TestPrescriptions: TestPrescription[] = [];
+
 }

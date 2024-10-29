@@ -1,0 +1,175 @@
+<div class="container">
+    <h3>Update Medicine Info</h3>
+    <hr>
+
+    <!--Template Driven Form-->
+    <form name="frmMedicine" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <!--MedicineId : hidden-->
+        <div class="form-group">
+            <label>Medicine ID :</label>
+            <input type="text" readonly name="medicineId" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.medicineId">
+        </div>
+        <!--Medicine Name : medicineName-->
+        <div class="form-group">
+            <label>Medicine Name :</label>
+            <input type="text" name="medicineName" #medicineName="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.medicineName"
+            minlength="3" maxlength="25" required 
+            [ngClass]="{'is-invalid' : medicineName.touched && medicineName.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="medicineName.touched && medicineName.invalid">
+                <div *ngIf="medicineName.errors.required">
+                    Medicine Name is invalid or required!
+                </div>
+            </div>           
+        </div>
+
+        <!--Generic Name : genericName-->
+        <div class="form-group">
+            <label>Generic Name :</label>
+            <input type="text" name="genericName" #genericName="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.genericName"
+            minlength="3" maxlength="25" required 
+            [ngClass]="{'is-invalid' : genericName.touched && genericName.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="genericName.touched && genericName.invalid">
+                <div *ngIf="genericName.errors.required">
+                    Generic Name  is invalid or required!
+                </div>
+            </div>           
+        </div>
+
+        <!--Manufacturer Name : manufacturerName-->
+        <div class="form-group">
+            <label>Manufacturer Name :</label>
+            <input type="text" name="manufacturerName" #manufacturerName="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.manufacturerName"
+            minlength="3" maxlength="25" required 
+            [ngClass]="{'is-invalid' : manufacturerName.touched && manufacturerName.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="manufacturerName.touched && manufacturerName.invalid">
+                <div *ngIf="manufacturerName.errors.required">
+                    Manufacturer Name is invalid or required!
+                </div>
+            </div>           
+        </div>
+       
+        <!--Manufacturing Date : manufacturingDate-->
+        <div class="form-group">
+            <label>Manufacturing Date :</label>
+            <input type="date" name="manufacturingDate" #manufacturingDate="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.manufacturingDate" required 
+            [ngClass]="{'is-invalid' : manufacturingDate.touched && manufacturingDate.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="manufacturingDate.touched && manufacturingDate.invalid">
+                <div *ngIf="manufacturingDate.errors.required">
+                    Manufacturing Date is invalid or required!
+                </div>
+            </div>
+        </div>  
+        
+        <!-- Expiry Date : expiryDate
+        <div class="form-group">
+            <label>Expiry Date :</label>
+            <input type="date" name="expiryDate" #ExpiryDate="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.expiryDate" required 
+            [ngClass]="{'is-invalid' : expiryDate.touched && expiryDate.invalid}"/>
+
+            <div class="validation-error" *ngIf="expiryDate.touched && expiryDate.invalid">
+                <div *ngIf="expiryDate.errors.required">
+                    Expiry Date is invalid or required!
+                </div>
+            </div>
+        </div>   -->
+        <!--Expiry Date : expiryDate-->
+        <div class="form-group">
+            <label>Expiry Date :</label>
+            <input type="date" name="expiryDate" #expiryDate="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.expiryDate" required 
+            [ngClass]="{'is-invalid' : expiryDate.touched && expiryDate.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="expiryDate.touched && expiryDate.invalid">
+                <div *ngIf="expiryDate.errors.required">
+                    Expiry Date is invalid or required!
+                </div>
+            </div>
+        </div>
+
+        <!--Category : category-->
+        <div class="form-group">
+            <label>Category :</label>
+            <input type="text" name="category" #category="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.category"
+            minlength="3" maxlength="25" required 
+            [ngClass]="{'is-invalid' : category.touched && category.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="category.touched && category.invalid">
+                <div *ngIf="category.errors.required">
+                    Category is invalid or required!
+                </div>
+            </div>           
+        </div>
+        
+        
+        <!--Quantity : quantity-->
+        <div class="form-group">
+            <label>Quantity :</label>
+            <input type="text" name="quantity" #quantity="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.quantity"
+            minlength="1" maxlength="4" required 
+            [ngClass]="{'is-invalid' : quantity.touched && quantity.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="quantity.touched && quantity.invalid">
+                <div *ngIf="quantity.errors.required">
+                    Quantity is invalid or required!
+                </div>
+            </div>           
+        </div>
+
+        <!--Price Per Unit : pricePerUnit-->
+        <div class="form-group">
+            <label>Price Per Unit :</label>
+            <input type="text" name="pricePerUnit" #pricePerUnit="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.pricePerUnit"
+            minlength="1" maxlength="4" required 
+            [ngClass]="{'is-invalid' : pricePerUnit.touched && pricePerUnit.invalid}">                                                                                                                                                                                                                                                                                                                                                                                    .invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="pricePerUnit.touched && pricePerUnit.invalid">
+                <div *ngIf="pricePerUnit.errors.required">
+                    Price Per Unit is invalid or required!
+                </div>
+            </div>           
+        </div>
+
+        <!--Dosage : dosage-->
+        <div class="form-group">
+            <label>Dosage :</label>
+            <input type="text" name="dosage" #dosage="ngModel" class="form-control"
+            [(ngModel)]="pharmacistService.medicineMaster.dosage"
+            minlength="3" maxlength="4" required 
+            [ngClass]="{'is-invalid' : dosage.touched && dosage.invalid}"/>
+
+            <!--Validation Error Message-->
+            <div class="validation-error" *ngIf="dosage.touched && dosage.invalid">
+                <div *ngIf="dosage.errors.required">
+                    Dosage is invalid or required!
+                </div>
+            </div>           
+        </div>
+       
+        <!--Submit-->
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary form-control"
+            [disabled]="!(form.valid && form.dirty)">UPDATE</button>
+        </div>
+    </form>
+</div>

@@ -1,4 +1,3 @@
-
 import { Appointment } from './appointment';
 import { TestBillSummary } from './test-bill-summary';
 import { TestReport } from './test-report';
@@ -27,5 +26,4 @@ export class Patient {
     phoneNumber:string;
     address:string;
     email:string;
-
 }

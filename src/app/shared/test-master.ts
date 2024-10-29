@@ -1,23 +1,29 @@
-import { Prescription } from './prescription';
 
 export class TestMaster {
-    TestId: number = 0;
-    TestName: string = '';
-    TestType?: string; // Optional property
-    Amount: number = 0;
+    testId: number=0;
+    testName: string;
+    testType: string;
+    amount: number=0;
+// import { Prescription } from './prescription';
 
-    // Relationships
-    Prescriptions: Prescription[] = [];
+// export class TestMaster {
+//     TestId: number = 0;
+//     TestName: string = '';
+//     TestType?: string; // Optional property
+//     Amount: number = 0;
 
-    constructor(
-        testId?: number,
-        testName?: string,
-        testType?: string,
-        amount?: number
-    ) {
-        if (testId) this.TestId = testId;
-        if (testName) this.TestName = testName;
-        if (testType) this.TestType = testType;
-        if (amount) this.Amount = amount;
-    }
+//     // Relationships
+//     Prescriptions: Prescription[] = [];
+
+//     constructor(
+//         testId?: number,
+//         testName?: string,
+//         testType?: string,
+//         amount?: number
+//     ) {
+//         if (testId) this.TestId = testId;
+//         if (testName) this.TestName = testName;
+//         if (testType) this.TestType = testType;
+//         if (amount) this.Amount = amount;
+//     }
 }

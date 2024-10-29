@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import{PatientsComponent} from './patients/patients.component';
 import { AuthComponent } from './auth/auth.component';
+import { MedicineComponent } from './medicine/medicine.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
 
@@ -18,6 +19,18 @@ const routes: Routes = [
 //       import('./auth/auth.module')
 //         .then(m => m.AuthModule)
 //   },
+    
+  {
+    path: 'medicines',
+    loadChildren: () =>
+      import('./medicine/medicine.module').then(x => x.MedicineModule)
+  },
+  {
+    path: 'tests',
+    loadChildren: () =>
+      import('./test/test.module').then( x => x.TestModule)
+  },
+
   {
     path: 'appointments',component: AppointmentsComponent,
     loadChildren: () =>
