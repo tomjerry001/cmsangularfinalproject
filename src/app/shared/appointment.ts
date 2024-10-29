@@ -6,6 +6,7 @@ import { Prescription } from './prescription';
 import { TestPrescription } from './test-prescription';
 
 export class Appointment {
+
     AppointmentId: number ;
     PatientId: number ;
     DoctorId: number ;
@@ -15,13 +16,14 @@ export class Appointment {
     TotalAmount: string ;
     patientDetails?: Patient; // Optional field to hold fetched patient data
 
-    // // Object Oriented Model
-    // Doctor: Doctor = new Doctor();
-    // Patient: Patient = new Patient();
+  
+  appointmentId:number=0;
+  patientId: number;
+  doctorId: number;
+  specializationId?: number; // Optional
+  dateAndTime: string;       // Should be formatted correctly
+  tokenNumber?: string;      // Optional, set by the backend
+  consultationStatus: boolean = true; // Default status
+  totalAmount: string = '200';        // Default as string to match backend type
 
-    // // Ignore in JSON serialization (if needed)
-    // MedicineBillSummaries: MedicineBillSummary[] = [];
-    // MedicinePrescriptions: MedicinePrescription[] = [];
-    // Prescriptions: Prescription[] = [];
-    // TestPrescriptions: TestPrescription[] = [];
 }

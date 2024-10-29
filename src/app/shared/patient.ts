@@ -1,3 +1,4 @@
+
 import { Appointment } from './appointment';
 import { TestBillSummary } from './test-bill-summary';
 import { TestReport } from './test-report';
@@ -16,4 +17,15 @@ export class Patient {
     Appointments: Appointment[] = [];
     TestBillSummaries: TestBillSummary[] = [];
     TestReports: TestReport[] = [];
+
+export class Patient {
+    patientId : number=0;
+    patientName: string;
+    dob:Date = new Date
+    gender:string;
+    bloodGroup:string;
+    phoneNumber:string;
+    address:string;
+    email:string;
+
 }

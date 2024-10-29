@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import{PatientsComponent} from './patients/patients.component';
 import { AuthComponent } from './auth/auth.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
 
 const routes: Routes = [
+
   // Empty Route (Redirect to login page)
   //{ path: 'appointments/list', component: AppointmentListComponent },
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
 
   // Authentication / Authorization (Lazy loading)
-  {
-    path: 'auth',component: AuthComponent,
-    loadChildren: () =>
-      import('./auth/auth.module')
-        .then(m => m.AuthModule)
-  },
+//   {
+//     path: 'auth',component: AuthComponent,
+//     loadChildren: () =>
+//       import('./auth/auth.module')
+//         .then(m => m.AuthModule)
+//   },
   {
     path: 'appointments',component: AppointmentsComponent,
     loadChildren: () =>
@@ -23,8 +25,26 @@ const routes: Routes = [
         .then(m => m.AppointmentsModule)
   },
   
-  // Wild Card Route for 404 page (Page Not Found)
-  { path: '**', redirectTo: 'auth/pagenotfound', pathMatch: 'full' }
+  
+//   {path:'',redirectTo:'auth/receptionist',pathMatch:'full'},
+  //Authentication /Authorization
+{
+  path: 'auth', component: AuthComponent, 
+  loadChildren: () =>
+    import('./auth/auth.module')
+      .then(x => x.AuthModule)
+}
+  ,
+   {
+    
+    path: 'patients', component: PatientsComponent,
+    loadChildren: () =>
+      import('./patients/patients.module')
+        .then(x => x.PatientsModule)
+  },
+
+  {path:'',redirectTo:'auth/pagenotfound',pathMatch:'full'}
+
 ];
 
 @NgModule({
