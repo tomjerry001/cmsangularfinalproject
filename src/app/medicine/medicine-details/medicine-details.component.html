@@ -1,0 +1,21 @@
+<div *ngIf="medicinePrescriptionsdto.length > 0; else noPrescriptions">
+    <h2>Prescription Details for {{ patientName }} (Appointment ID: {{ appointmentId }})</h2>
+    
+    <div *ngFor="let prescription of medicinePrescriptionsdto" class="prescription-card">
+      <h3>Medicine: {{ prescription.medicineName }}</h3>
+      <p><strong>Quantity:</strong> {{ prescription.quantity }}</p>
+      <p><strong>Dosage:</strong> {{ prescription.dosage }}</p>
+      <p><strong>Duration:</strong> {{ prescription.duration }}</p>
+      <p><strong>Notes:</strong> {{ prescription.notes }}</p>
+      <p><strong>Manufacturing Date:</strong> {{ prescription.manufacturingDate | date }}</p>
+      <p><strong>Expiry Date:</strong> {{ prescription.expiryDate | date }}</p>
+      <p><strong>Category:</strong> {{ prescription.category }}</p>
+      <p><strong>Price per Unit:</strong> {{ prescription.pricePerUnit | currency }}</p>
+      <p><strong>Total Price:</strong> {{ prescription.totalPrice | currency }}</p>
+    </div>
+  </div>
+  
+  <ng-template #noPrescriptions>
+    <p>No prescriptions found for {{ patientName }} with Appointment ID: {{ appointmentId }}.</p>
+  </ng-template>
+  
