@@ -1,0 +1,39 @@
+<div class="container">
+    <h3>Test Consultation Form</h3>
+    <hr>
+    <form name="frmConsultation" #testForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(testForm)">
+  
+      <!-- Test Name Dropdown -->
+      <div class="form-group">
+        <label>Test Name</label>
+        <select name="TestId" #TestId="ngModel" [(ngModel)]="doctorService.testprescriptionvm.TestId" class="form-control" required>
+          <option value="" disabled>--Select Tests--</option>
+          <option *ngFor="let test of doctorService.tests" [value]="test.TestId">{{ test.TestName }}</option>
+        </select>
+        <div class="validation-error" *ngIf="TestId.touched && TestId.invalid">
+          <div *ngIf="TestId.errors?.required">Test name is required!</div>
+        </div>
+      </div>
+  
+      <!-- Notes Field -->
+      <div class="form-group">
+        <label>Notes</label>
+        <textarea name="Notes" #Notes="ngModel" class="form-control" [(ngModel)]="doctorService.testprescriptionvm.Notes"
+                  placeholder="Enter Notes" required minlength="3" [ngClass]="{'is-invalid': Notes.touched && Notes.invalid}">
+        </textarea>
+        <div class="validation-error" *ngIf="Notes.touched && Notes.invalid">
+          <div *ngIf="Notes.errors?.required">Notes are required!</div>
+          <div *ngIf="Notes.errors?.minlength">Notes must be at least 3 characters!</div>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-primary form-control" [disabled]="!(testForm.valid && testForm.dirty)">
+          Submit Test Prescription
+        </button>
+      </div>
+  
+    </form>
+  </div>
+  

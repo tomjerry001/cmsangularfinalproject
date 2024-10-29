@@ -1,0 +1,192 @@
+<!-- 
+<div class="container">
+    <h3>Consultation Form</h3>
+    <hr>
+    <form name="frmConsultation" #consultForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(consultForm)">
+
+        <div class="form-group">
+            <label>AppointmentId</label>
+            <input type="text" readonly name="AppointmentId" [(ngModel)]="doctorService.appointmentvm.AppointmentId"
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" readonly name="PatientName" class="form-control" [(ngModel)]="doctorService.appointmentvm.PatientName" />
+        </div>
+
+        <div class="form-group">
+            <label>Patient Date of Birth</label>
+            <input type="text" readonly name="PatientDOB" class="form-control" [(ngModel)]="doctorService.appointmentvm.Dob" />
+        </div>
+
+        <div class="form-group">
+            <label>Symptoms</label>
+            <textarea name="Symptoms" #Symptoms="ngModel" class="form-control"
+                [(ngModel)]="doctorService.prescriptionvm.Symptoms" placeholder="Enter Symptoms" minlength="3" required
+                [ngClass]="{'is-invalid': Symptoms.touched && Symptoms.invalid}"></textarea>
+
+            <div class="validation-error" *ngIf="Symptoms.touched && Symptoms.invalid">
+                <div *ngIf="Symptoms.errors?.required">
+                    Symptoms are required!
+                </div>
+                <div *ngIf="Symptoms.errors?.minlength">
+                    Symptoms must be at least 3 characters!
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Diagnosis</label>
+            <textarea name="Diagnosis" #Diagnosis="ngModel" class="form-control"
+                [(ngModel)]="doctorService.prescriptionvm.Diagnosis" placeholder="Enter Diagnosis" minlength="3"
+                required [ngClass]="{'is-invalid': Diagnosis.touched && Diagnosis.invalid}"></textarea>
+
+            <div class="validation-error" *ngIf="Diagnosis.touched && Diagnosis.invalid">
+                <div *ngIf="Diagnosis.errors?.required">
+                    Diagnosis is required!
+                </div>
+                <div *ngIf="Diagnosis.errors?.minlength">
+                    Diagnosis must be at least 3 characters!
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>TreatmentPlan</label>
+            <textarea name="TreatmentPlan" #TreatmentPlan="ngModel" class="form-control"
+                [(ngModel)]="doctorService.prescriptionvm.TreatmentPlan" placeholder="Enter TreatmentPlan" minlength="3"
+                required [ngClass]="{'is-invalid': TreatmentPlan.touched && TreatmentPlan.invalid}"></textarea>
+
+            <div class="validation-error" *ngIf="TreatmentPlan.touched && TreatmentPlan.invalid">
+                <div *ngIf="TreatmentPlan.errors?.required">
+                    TreatmentPlan is required!
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" name="ConsultationStatus" #IsActive="ngModel" class="form-check-input"
+                    [(ngModel)]="doctorService.appointmentvm.ConsultationStatus" style="width: 20px; height: 20px;" />
+                <label class="form-check-label"> Consultation Status?</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary form-control"
+                [disabled]="!(consultForm.valid && consultForm.dirty)">Submit</button>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-sm btn-outline-info" 
+            (click)="medicinePrescribe(medicineprescription)">
+                <i class="fa fa-plus"></i> Medicineprescription
+            </button>
+        </div>
+         <div class="form-group">
+            <button type="button" class="btn btn-sm btn-outline-info" 
+            (click)="medicinePrescribe(medicineprescription)">
+                <i class="fa fa-plus"></i> Medicineprescription
+            </button>
+        </div> 
+
+    </form>
+</div> -->
+<div class="container">
+    <h3>Consultation Form</h3>
+    <hr>
+    <form name="frmConsultation" #consultForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(consultForm)">
+
+        <div class="form-group">
+            <label>AppointmentId</label>
+            <input type="text" readonly name="AppointmentId" 
+            [(ngModel)]="doctorService.appointmentvm.AppointmentId" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" readonly name="PatientName" class="form-control" 
+            [(ngModel)]="doctorService.appointmentvm.Patient.PatientName" />
+        </div>
+
+        <div class="form-group">
+            <label>Patient Date of Birth</label>
+            <input type="text" readonly name="PatientDOB" class="form-control" 
+            [(ngModel)]="doctorService.appointmentvm.Patient.Dob" />
+        </div>
+
+        <div class="form-group">
+            <label>Symptoms</label>
+            <textarea name="Symptoms" #Symptoms="ngModel" class="form-control"
+                [(ngModel)]="doctorService.prescriptionvm.Symptoms" placeholder="Enter Symptoms" minlength="3" required
+                [ngClass]="{'is-invalid': Symptoms.touched && Symptoms.invalid}"></textarea>
+
+            <div class="validation-error" *ngIf="Symptoms.touched && Symptoms.invalid">
+                <div *ngIf="Symptoms.errors?.required">
+                    Symptoms are required!
+                </div>
+                <div *ngIf="Symptoms.errors?.minlength">
+                    Symptoms must be at least 3 characters!
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Diagnosis</label>
+            <textarea name="Diagnosis" #Diagnosis="ngModel" class="form-control"
+                [(ngModel)]="doctorService.prescriptionvm.Diagnosis" placeholder="Enter Diagnosis" minlength="3"
+                required [ngClass]="{'is-invalid': Diagnosis.touched && Diagnosis.invalid}"></textarea>
+
+            <div class="validation-error" *ngIf="Diagnosis.touched && Diagnosis.invalid">
+                <div *ngIf="Diagnosis.errors?.required">
+                    Diagnosis is required!
+                </div>
+                <div *ngIf="Diagnosis.errors?.minlength">
+                    Diagnosis must be at least 3 characters!
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Treatment Plan</label>
+            <textarea name="TreatmentPlan" #TreatmentPlan="ngModel" class="form-control"
+                [(ngModel)]="doctorService.prescriptionvm.TreatmentPlan" placeholder="Enter Treatment Plan" minlength="3"
+                required [ngClass]="{'is-invalid': TreatmentPlan.touched && TreatmentPlan.invalid}"></textarea>
+
+            <div class="validation-error" *ngIf="TreatmentPlan.touched && TreatmentPlan.invalid">
+                <div *ngIf="TreatmentPlan.errors?.required">
+                    Treatment Plan is required!
+                </div>
+            </div>
+        </div>
+
+        <!-- Consultation Status -->
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" name="ConsultationStatus" #IsActive="ngModel" class="form-check-input"
+                    [(ngModel)]="doctorService.appointmentvm.ConsultationStatus" style="width: 20px; height: 20px;" />
+                <label class="form-check-label"> Consultation Status?</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary form-control"
+                [disabled]="!(consultForm.valid && consultForm.dirty)">Submit</button>
+        </div>
+
+        <!-- <div class="form-group">
+            <button type="button" class="btn btn-sm btn-outline-info" 
+            (click)="medicinePrescribe(medicineprescription)">
+                <i class="fa fa-plus"></i> Medicine Prescribe
+            </button>
+        </div> 
+        <div class="form-group">
+            <button type="button" class="btn btn-sm btn-outline-info" 
+            (click)="testPrescribe(testprescription)">
+                <i class="fa fa-plus"></i> Test Prescribe
+            </button>
+        </div>  -->
+    </form>
+</div>
+
+<app-appointment-med></app-appointment-med>
+<app-appointment-test></app-appointment-test>

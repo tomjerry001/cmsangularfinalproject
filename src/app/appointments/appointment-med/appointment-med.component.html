@@ -1,0 +1,106 @@
+<!-- <div class="container">
+  <h3>Medicine Consultation Form</h3>
+  <hr>
+  <form [formGroup]="medicineForm" autocomplete="off" (ngSubmit)="onSubmit()">-->
+    <!-- <div class="form-group">
+          <label>Medicine Name</label>
+          <select formControlName="MedicineName" class="form-control" required>
+              <option value="" disabled>Select a medicine</option> 
+              <option *ngFor="let med of medicines" [value]="med.MedicineId">
+                  {{ med.MedicineName }}
+              </option>
+          </select>
+          <div class="validation-error" *ngIf="medicineForm.get('MedicineName')?.touched && medicineForm.get('MedicineName')?.invalid">
+              <div *ngIf="medicineForm.get('MedicineName')?.errors?.required">Medicine name is required!</div>
+          </div>
+      </div> -->
+
+    <!--<div class="form-group">
+      <label>Medicine Name</label>
+      <select formControlName="MedicineId" class="form-control" required>
+        <option value="" disabled>--Select Medicines--</option>
+        <option *ngFor="let med of doctorService.medicines" [value]="med.MedicineId">{{med.MedicineName}}</option>
+      </select>
+      <div class="validation-error"
+        *ngIf="medicineForm.get('MedicineId')?.touched && medicineForm.get('MedicineId')?.invalid">
+        <div *ngIf="medicineForm.get('MedicineId')?.errors?.required">
+          Medicine name is required!
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Duration</label>
+      <textarea formControlName="Duration" class="form-control" placeholder="Enter Duration"
+        [ngClass]="{'is-invalid': medicineForm.get('Duration')?.touched && medicineForm.get('Duration')?.invalid}"
+        required>
+          </textarea>
+      <div class="validation-error"
+        *ngIf="medicineForm.get('Duration')?.touched && medicineForm.get('Duration')?.invalid">
+        <div *ngIf="medicineForm.get('Duration')?.errors?.required">Duration is required!</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Notes</label>
+      <textarea formControlName="Notes" class="form-control" placeholder="Enter Notes"
+        [ngClass]="{'is-invalid': medicineForm.get('Notes')?.touched && medicineForm.get('Notes')?.invalid}" required>
+          </textarea>
+      <div class="validation-error" *ngIf="medicineForm.get('Notes')?.touched && medicineForm.get('Notes')?.invalid">
+        <div *ngIf="medicineForm.get('Notes')?.errors?.required">Notes are required!</div>
+        <div *ngIf="medicineForm.get('Notes')?.errors?.minlength">Notes must be at least 3 characters!</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-primary form-control" [disabled]="!medicineForm.valid">
+        Submit Medicine Prescription
+      </button>
+    </div>
+  </form>
+</div> -->
+
+<div class="container">
+  <h3>Medicine Consultation Form</h3>
+  <hr>
+  <form [formGroup]="medicineForm" autocomplete="off" (ngSubmit)="onSubmit()">
+
+    <!-- Medicine Name Dropdown -->
+    <div class="form-group">
+      <label>Medicine Name</label>
+      <select formControlName="MedicineId" class="form-control" required>
+        <option value="" disabled>--Select Medicines--</option>
+        <option *ngFor="let med of doctorService.medicines" [value]="med.MedicineId">{{ med.MedicineName }}</option>
+      </select>
+      <div class="validation-error" *ngIf="medicineForm.get('MedicineId')?.touched && medicineForm.get('MedicineId')?.invalid">
+        <div *ngIf="medicineForm.get('MedicineId')?.errors?.required">Medicine name is required!</div>
+      </div>
+    </div>
+
+    <!-- Duration Field -->
+    <div class="form-group">
+      <label>Duration</label>
+      <textarea formControlName="Duration" class="form-control" placeholder="Enter Duration" required></textarea>
+      <div class="validation-error" *ngIf="medicineForm.get('Duration')?.touched && medicineForm.get('Duration')?.invalid">
+        <div *ngIf="medicineForm.get('Duration')?.errors?.required">Duration is required!</div>
+      </div>
+    </div>
+
+    <!-- Notes Field -->
+    <div class="form-group">
+      <label>Notes</label>
+      <textarea formControlName="Notes" class="form-control" placeholder="Enter Notes" required></textarea>
+      <div class="validation-error" *ngIf="medicineForm.get('Notes')?.touched && medicineForm.get('Notes')?.invalid">
+        <div *ngIf="medicineForm.get('Notes')?.errors?.required">Notes are required!</div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-primary form-control" 
+      [disabled]="!medicineForm.valid">
+        Submit Medicine Prescription
+      </button>
+    </div>
+  </form>
+</div>
