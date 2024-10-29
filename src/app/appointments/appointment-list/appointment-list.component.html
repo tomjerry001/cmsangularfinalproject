@@ -1,0 +1,43 @@
+<div class="container">
+    <h3>List of Appointments</h3>
+    <div class="header">
+        <div class="row">
+            <!-- Search Appointment -->
+            <div class="col-sm-8">
+                <input type="search" class="form-control custom-margin-search" placeholder="Search Appointments"
+                    [(ngModel)]="searchTerm" (input)="filterAppointmentvm()">
+            </div>
+        </div>
+    </div>
+
+    <!-- List Appointments -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient Name</th>
+                <th>Token Number</th>
+                <th>Consultation Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let appointment of filteredAppointmentvm | paginate: { itemsPerPage: 5, currentPage: page }">
+                <td>{{ appointment.AppointmentId }}</td>
+                <td>{{ appointment.Patient.PatientName }}</td>
+                <td>{{ appointment.TokenNumber }}</td>
+                <td><input type="checkbox" [checked]="appointment.ConsultationStatus" disabled /></td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-info" 
+                            (click)="consultPatient(appointment)">
+                        <i class="fa fa-user-md"></i> Consult
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div> 
