@@ -1,0 +1,73 @@
+<div id="bill" class="consultation-bill">
+  <h2>Consultation Bill</h2>
+  <div class="bill-details">
+    <p><strong>Patient Name:</strong> {{ patient?.patientName || 'N/A' }}</p>
+    <p><strong>Appointment ID:</strong> {{ appointment?.appointmentId }}</p>
+    <p><strong>Token Number:</strong> {{ appointment?.tokenNumber }}</p>
+    <p><strong>Consultation Fees:</strong> {{ appointment?.totalAmount }}</p>
+    <p><strong>Doctor Name:</strong> {{ doctorName }}</p>
+    <p><strong>Specialization:</strong> {{ specializationName }}</p>
+  </div>
+  <button (click)="printBill()" class="btn btn-primary">Print Bill</button>
+  <button (click)="goBack()" class="btn btn-secondary">Back to Patient List</button>
+</div>
+
+<style>
+  /* Consultation Bill Container */
+  .consultation-bill {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+
+  /* Title Styling */
+  .consultation-bill h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  /* Bill Details Styling */
+  .bill-details p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+  }
+
+  /* Button Styling */
+  .btn {
+    margin: 20px 5px 0 5px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    background-color: #4c8bf5;
+    border-color: #4c8bf5;
+    color: white;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+
+  .btn-primary:hover {
+    background-color: #3a74d0;
+    border-color: #3a74d0;
+  }
+</style>

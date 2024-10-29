@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="header">
+        <div class="row">
+            <!-- Search Button -->
+            <div class="col-lg-8 col-md-8 col-sm-12 mb-2">
+                <input type="search" class="form-control custom-margin-search" placeholder="Search Patients"
+                    [(ngModel)]="searchTerm" (input)="filterPatients()">
+            </div>
+            <!-- Add Patient -->
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-2 text-right">
+                <a [routerLink]="['/patients/add']" role="button" class="btn btn-outline-primary custom-margin-add">
+                    <i class="fa fa-user-plus fa-lg"></i>&nbsp;Add Patient
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- List Patients -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Dob</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let patient of filteredPatients | paginate: { itemsPerPage: 10, currentPage: page }">
+                    <td>{{ patient.PatientId }}</td>
+                    <td>{{ patient.PatientName }}</td>
+                    <td>{{ patient.Dob }}</td>
+                    <td>{{ patient.Gender }}</td>
+                    <td>{{ patient.BloodGroup }}</td>
+                    <td>{{ patient.PhoneNumber }}</td>
+                    <td>{{ patient.Address }}</td>
+                    <td>{{ patient.Email }}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-outline-info" (click)="editPatient(Patient)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-sm btn-outline-primary"
+                            (click)="bookAppointment(patient.PatientId)">
+                            <i class="fa fa-calendar"></i>&nbsp;Book Appointment
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer text-right">
+        <pagination-controls (pageChange)="page = $event" align="right"></pagination-controls>
+    </div>
+</div>

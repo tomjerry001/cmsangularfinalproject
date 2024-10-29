@@ -1,0 +1,45 @@
+<!-- File: patient-edit.component.html -->
+<div class="container">
+    <h2>Edit Patient</h2>
+    <form (ngSubmit)="updatePatient()">
+        <div *ngIf="patient">
+            <div class="form-group">
+                <label for="patientName">Patient Name</label>
+                <input type="text" id="patientName" class="form-control" [(ngModel)]="patient.patientName"
+                    name="patientName" required readonly>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" class="form-control" [(ngModel)]="patient.dob" name="dob" required readonly>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" class="form-control" [(ngModel)]="patient.gender" name="gender" required disabled>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bloodGroup">Blood Group</label>
+                <input type="text" id="bloodGroup" class="form-control" [(ngModel)]="patient.bloodGroup"
+                    name="bloodGroup" required readonly>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" class="form-control" [(ngModel)]="patient.phoneNumber"
+                    name="phoneNumber">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" class="form-control" [(ngModel)]="patient.address" name="address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="patient.email" name="email" required
+                    readonly>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+    </form>
+</div>

@@ -1,23 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import{PatientsComponent} from './patients/patients.component';
 import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
-  //Empty Route
-{path:'',redirectTo:'auth/login', pathMatch:'full'},
-
-//Authentication /Authorization
+  {path:'',redirectTo:'auth/receptionist',pathMatch:'full'},
+  //Authentication /Authorization
 {
   path: 'auth', component: AuthComponent, 
   loadChildren: () =>
     import('./auth/auth.module')
       .then(x => x.AuthModule)
 },
+  {
+    
+    path: 'patients', component: PatientsComponent,
+    loadChildren: () =>
+      import('./patients/patients.module')
+        .then(x => x.PatientsModule)
+  },
 
-//You can add other Parent components below, like above   -- lazy loading for best performance
-
-//Wild Card Route
-{path:'**',redirectTo:'auth/pagenotfound', pathMatch:'full'}
+  {path:'',redirectTo:'auth/pagenotfound',pathMatch:'full'}
 ];
 
 @NgModule({
