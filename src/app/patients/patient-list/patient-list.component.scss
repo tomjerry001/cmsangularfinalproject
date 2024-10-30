@@ -1,14 +1,53 @@
+body {
+  background-color: #f0f2f5; /* Light background color */
+}
+
+.card {
+  border-radius: 15px; /* Rounded corners for card */
+  background-color: #ffffff; /* White background for card */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.card-title {
+  font-size: 1.5rem; /* Larger font size for title */
+  color: rgb(12, 127, 127); /* Custom color for title */
+}
+
+.form-control {
+  border-radius: 5px; /* Rounded input fields */
+  border: 1px solid #ced4da; /* Border color */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.form-control:focus {
+  border-color: rgb(12, 127, 127); /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(12, 127, 127, 0.5); /* Shadow on focus */
+}
+
+.btn-primary {
+  background-color: rgb(12, 127, 127); /* Button color */
+  border-color: rgb(12, 127, 127); /* Button border color */
+}
+
+.btn-primary:hover {
+  background-color: rgb(10, 100, 100); /* Darker shade on hover */
+  border-color: rgb(10, 100, 100); /* Darker border on hover */
+}
+
+.validation-error {
+  margin-top: 0.5rem; /* Spacing for error messages */
+}
+
 .header, .footer {
-    background-color: #E6E6FA; /* Light violet color */
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .custom-margin-search {
-    margin-right: 10px;
-  }
-  
-  .table-responsive {
-    margin-top: 20px;
-  }
-  
+  background-color: #E6E6FA; /* Light violet color for header/footer */
+  padding: 10px; /* Padding for header/footer */
+  border-radius: 4px; /* Rounded corners for header/footer */
+}
+
+.custom-margin-search {
+  margin-right: 10px; /* Right margin for search input */
+}
+
+.table-responsive {
+  margin-top: 20px; /* Top margin for responsive table */
+}

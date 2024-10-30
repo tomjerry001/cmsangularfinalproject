@@ -26,7 +26,7 @@ export class MedicineUpdateComponent implements OnInit {
 
     // Reset form
     form.reset();
-    this.router.navigate(['/medicines/list']);
+    this.router.navigate(['medicines/list']);
     
 
   }

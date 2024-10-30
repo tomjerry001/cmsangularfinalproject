@@ -12,7 +12,7 @@ export class Doctor {
     Specialization: Specialization=new Specialization();
     Staff: Staff=new Staff();
 
-}
+
 
 // export class Doctor {
 //     doctorId:number=0;
@@ -22,6 +22,6 @@ export class Doctor {
 
     
 //     Specialization: Specialization = new Specialization();
-// }
+}
 
 

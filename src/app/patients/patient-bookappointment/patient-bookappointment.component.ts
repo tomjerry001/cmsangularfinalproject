@@ -65,6 +65,7 @@ export class PatientBookAppointmentComponent implements OnInit {
     console.log('Form Submitted:', form.value);
     const appointmentDate = new Date(this.receptionistService.appointmentViewModel.dateAndTime).toISOString().split('T')[0];
     if (form.valid && this.isValidDate(appointmentDate)) {
+     // console.log(form);
       this.addAppointment(form);
     } else {
       this.toastr.error('Please select a valid date (today or tomorrow).');
@@ -74,6 +75,7 @@ export class PatientBookAppointmentComponent implements OnInit {
   addAppointment(form: NgForm) {
     this.receptionistService.addAppointment(form.value).subscribe(
       (response) => {
+     
         this.toastr.success('Appointment booked successfully');
         const formattedDateAndTime = new Date(form.value.dateAndTime).toISOString();
         this.router.navigate(['/patients/patientconsultationbill'], {
@@ -85,7 +87,8 @@ export class PatientBookAppointmentComponent implements OnInit {
             SpecializationId: form.value.SpecializationId,
             TokenNumber: response.TokenNumber,
             TotalAmount: response.TotalAmount,
-            patientName: this.receptionistService.patient?.patientName
+            patientName: this.receptionistService.patient?.PatientName
+
           }
         });
       },

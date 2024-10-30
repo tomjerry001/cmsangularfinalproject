@@ -28,6 +28,7 @@ import { MedicineBillComponent } from './medicine-bill/medicine-bill.component';
     FormsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule
-  ]
+  ],
+  exports:[MedicinePrescriptionListComponent]
 })
 export class MedicineModule { }

@@ -1,12 +1,20 @@
 <div class="container-fluid">
     <div class="header">
         <div class="row">
-            <!-- Search Button -->
-            <div class="col-lg-8 col-md-8 col-sm-12 mb-2">
+            <!-- Logout Button at the Left Top -->
+            <div class="col-lg-2 col-md-2 col-sm-12 mb-2 text-left">
+                <button type="button" class="btn btn-outline-primary" (click)="logout()">
+                    <i class="fa fa-sign-out-alt"></i>&nbsp;Logout
+                </button>
+            </div>
+
+            <!-- Search Bar Centered -->
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-2 mx-auto">
                 <input type="search" class="form-control custom-margin-search" placeholder="Search Patients"
                     [(ngModel)]="searchTerm" (input)="filterPatients()">
             </div>
-            <!-- Add Patient -->
+
+            <!-- Add Patient Button Right-Aligned -->
             <div class="col-lg-4 col-md-4 col-sm-12 mb-2 text-right">
                 <a [routerLink]="['/patients/add']" role="button" class="btn btn-outline-primary custom-margin-add">
                     <i class="fa fa-user-plus fa-lg"></i>&nbsp;Add Patient
@@ -42,7 +50,7 @@
                     <td>{{ patient.Address }}</td>
                     <td>{{ patient.Email }}</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-sm btn-outline-info" (click)="editPatient(Patient)">
+                        <button type="button" class="btn btn-sm btn-outline-info" (click)="editPatient(patient)">
                             <i class="fa fa-edit"></i>
                         </button>
                         &nbsp;
@@ -51,6 +59,9 @@
                             <i class="fa fa-calendar"></i>&nbsp;Book Appointment
                         </button>
                     </td>
+                </tr>
+                <tr *ngIf="filteredPatients.length === 0">
+                    <td colspan="9" class="text-center">No Patients Found</td>
                 </tr>
             </tbody>
         </table>

@@ -10,12 +10,17 @@
         </div>
     </div>
 
+    <button type="button" class="btn btn-outline-secondary btn-sm" (click)="goBack()"
+        style="position: absolute; top: 10px; right: 10px;">
+        LOGOUT
+    </button>
+
     <!-- List Appointments -->
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Appointment ID</th>
-                <th>Patient Name</th>
+                <!-- <th>Patient Name</th> -->
                 <th>Token Number</th>
                 <th>Consultation Status</th>
                 <th>Action</th>
@@ -24,12 +29,11 @@
         <tbody>
             <tr *ngFor="let appointment of filteredAppointmentvm | paginate: { itemsPerPage: 5, currentPage: page }">
                 <td>{{ appointment.AppointmentId }}</td>
-                <td>{{ appointment.Patient.PatientName }}</td>
+                <!-- <td>{{ appointment.Patient.PatientName }}</td> -->
                 <td>{{ appointment.TokenNumber }}</td>
                 <td><input type="checkbox" [checked]="appointment.ConsultationStatus" disabled /></td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-outline-info" 
-                            (click)="consultPatient(appointment)">
+                    <button type="button" class="btn btn-sm btn-outline-info" (click)="!consultPatient(appointment)">
                         <i class="fa fa-user-md"></i> Consult
                     </button>
                 </td>
@@ -40,4 +44,4 @@
     <div class="footer">
         <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
-</div> 
+</div>

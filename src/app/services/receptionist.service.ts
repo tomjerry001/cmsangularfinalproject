@@ -24,7 +24,7 @@ export class ReceptionistService {
 
   // Retrieve all patients and store them in the patients array
   getAllPatientss(): void {
-    this.httpClient.get<Patient[]>(`${environment.apiUrl}/api/Patient`)
+    this.httpClient.get<Patient[]>(`${environment.apiUrl}Patient`)
       .toPromise()
       .then(
         (response) => {
@@ -39,17 +39,17 @@ export class ReceptionistService {
 
   // Observable version to get the patients list
   getAllPatientsList(): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + '/api/Patient');
+    return this.httpClient.get(environment.apiUrl + 'Patient');
   }
 
   // Add a new patient
   addPatient(employee: Patient): Observable<any> {
-    return this.httpClient.post(environment.apiUrl + '/api/Patient', employee);
+    return this.httpClient.post(environment.apiUrl + 'Patient', employee);
   }
 
   // Retrieve all specializations and store them in the specials array
   getAllSpecializations(): void {
-    this.httpClient.get<Specialization[]>(`${environment.apiUrl}/api/Patient/specializations`)
+    this.httpClient.get<Specialization[]>(`${environment.apiUrl}Patient/specializations`)
       .subscribe(
         response => {
           this.specials = response;
@@ -63,19 +63,19 @@ export class ReceptionistService {
 
   // Retrieve doctors by specialization
   getDoctorsBySpecialization(specializationId: number): Observable<Doctor[]> {
-    return this.httpClient.get<Doctor[]>(`${environment.apiUrl}/api/Patient/doctors/${specializationId}`);
+    return this.httpClient.get<Doctor[]>(`${environment.apiUrl}Patient/doctors/${specializationId}`);
   }
 
   // Generate token number based on doctor ID
   generateTokenNumber(doctorId: number): Observable<string> {
-    return this.httpClient.get<string>(`${environment.apiUrl}/api/Patient/nextToken/${doctorId}`);
+    return this.httpClient.get<string>(`${environment.apiUrl}Patient/nextToken/${doctorId}`);
   }
 
   // Book an appointment with token number and formatted date
   addAppointment(appointment: Appointment): Observable<any> {
 
 
-    return this.httpClient.post(`${environment.apiUrl}/api/Patient/book`, appointment)
+    return this.httpClient.post(`${environment.apiUrl}Patient/book`, appointment)
     // Ensure `dateAndTime` is correctly formatted as `YYYY-MM-DD HH:mm:ss`
     // const dateObj = new Date(appointmentData.dateAndTime);
     // appointmentData.dateAndTime = dateObj.toISOString().slice(0, 19).replace('T', ' ');
@@ -95,11 +95,11 @@ export class ReceptionistService {
 
   // New method to retrieve a patient by ID
   getPatientById(id: number): Observable<Patient> {
-    return this.httpClient.get<Patient>(`${environment.apiUrl}/api/Patient/${id}`);
+    return this.httpClient.get<Patient>(`${environment.apiUrl}Patient/${id}`);
   }
 
   // New method to update patient details
   updatePatient(patient: Patient): Observable<void> {
-    return this.httpClient.put<void>(`${environment.apiUrl}/api/Patient/${patient.patientId}`, patient);
+    return this.httpClient.put<void>(`${environment.apiUrl}Patient/${patient.PatientId}`, patient);
   }
 }

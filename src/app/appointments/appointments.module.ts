@@ -15,7 +15,7 @@ import { AppointmentTestComponent } from './appointment-test/appointment-test.co
 
 
 @NgModule({
-  declarations: [AppointmentsComponent, AppointmentListComponent, AppointmentConsultComponent,
+  declarations: [AppointmentsComponent,AppointmentListComponent, AppointmentConsultComponent,
      AppointmentMedComponent, AppointmentTestComponent],
   imports: [
     CommonModule,
@@ -24,6 +24,7 @@ import { AppointmentTestComponent } from './appointment-test/appointment-test.co
     FormsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule
-  ]
+  ],
+  exports:[AppointmentListComponent]
 })
 export class AppointmentsModule { }

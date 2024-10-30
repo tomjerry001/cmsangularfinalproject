@@ -138,6 +138,9 @@ export class AppointmentConsultComponent implements OnInit {
         }
       );
   }
+  goBack(): void {
+    window.location.href = 'http://localhost:4200/auth/doctor';
+}
 
   
   // //Medicine Prescription

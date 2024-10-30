@@ -22,7 +22,8 @@ import { TestReportComponent } from './test-report/test-report.component';
     FormsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule
-  ]
+  ],
+  exports:[TestPrescriptionListComponent]
     
   
 })

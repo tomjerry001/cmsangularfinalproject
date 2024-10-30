@@ -24,7 +24,7 @@ export class PharmacistService {
 
   // 1. Get All Medicines - Promises
   getAllMedicines(): void{
-    this.httpClient.get(environment.apiUrl + '/api/medicines')
+    this.httpClient.get(environment.apiUrl + 'medicines')
     .toPromise()
     .then(
       (response) => {
@@ -39,22 +39,22 @@ export class PharmacistService {
 
   // 2. Get All Medicines - observable types
   getAllMedicinesList(): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + '/api/Medicines');
+    return this.httpClient.get(environment.apiUrl + 'Medicines');
   }
 
   // 3. Insert
   insertMedicine(medicineMaster: MedicineMaster): Observable<any> {
-    return this.httpClient.post(environment.apiUrl + '/api/medicines',medicineMaster);
+    return this.httpClient.post(environment.apiUrl + 'medicines',medicineMaster);
   }
 
   // 4. Update
   updateMedicine(medicineMaster: MedicineMaster): Observable<any> {
-    return this.httpClient.put(environment.apiUrl + '/api/medicines/' + medicineMaster.medicineId,medicineMaster);
+    return this.httpClient.put(environment.apiUrl + 'medicines/' + medicineMaster.medicineId,medicineMaster);
   }
 
   // 5. Get All Medicine Prescriptions - Promises
   getAllMedicinePrescriptions(): void{
-    this.httpClient.get(environment.apiUrl + '/api/medicines/prescriptions/details')
+    this.httpClient.get(environment.apiUrl + 'medicines/prescriptions/details')
     .toPromise()
     .then(
       (response) => {
@@ -69,13 +69,13 @@ export class PharmacistService {
 
   // 6. Get All Medicine Prescriptions - Obserrvable types
   getAllMedicinePrescriptionsList(): Observable<any> {
-    return this.httpClient.get(environment.apiUrl+ '/api/Medicines/prescriptions/details');
+    return this.httpClient.get(environment.apiUrl+ 'medicines/prescriptions/details');
   }
 
   // 7. Get Details of the Prescription
   getMedicinePrescriptionsByPatientAndAppointment(patientName: string, appointmentId: number): Observable<MedicinePrescriptionDto[]> {
     return this.httpClient.get<MedicinePrescriptionDto[]>(
-      `${environment.apiUrl}/api/medicines/appointments/appointmentId=${appointmentId}`
+      `${environment.apiUrl}medicines/appointments/appointmentId=${appointmentId}`
     );
   }
 

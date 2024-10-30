@@ -13,7 +13,7 @@
         <!-- Doctor Name -->
         <div class="form-group">
             <label>Doctor Name</label>
-            <input type="text" readonly name="DoctorName" #DoctorName="ngModel" class="form-control"
+            <input type="text"  name="DoctorName" #DoctorName="ngModel" class="form-control"
                 [(ngModel)]="adminService.doctor.DoctorName" minlength="3" maxlength="50" required
                 [ngClass]="{'is-invalid': DoctorName.touched && DoctorName.invalid}" />
             <!-- Validation Error Message -->

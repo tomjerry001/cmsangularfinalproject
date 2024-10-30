@@ -1,22 +1,25 @@
-<div class="container">
-    <!--List Medicine-->
+<!-- <div class="container">
+  
     <div class="header">
         <div class="row">
-            <!--Search Medicine button-->
+         
             <div class="col-sm-8">
-                <input type="search" class="form-control custom-margin-search" 
-                placeholder="Search Text here" [(ngModel)] = "searchTerm"
-                (input)="filterMedicines()">
+                <input type="search" class="form-control custom-margin-search" placeholder="Search Text here"
+                    [(ngModel)]="searchTerm" (input)="filterMedicines()">
             </div>
-            <!--Add Medicine-->
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="goBack()"
+                style="position: absolute; top: 10px; right: 10px;">
+                Back 
+            </button>
+         
             <div class="col-sm-4">
                 <a [routerLink]="['/medicines/add']" role="button" class="btn btn-outline-primary custom-margin-add">
                     <i class="fa fa-plus fa-lg"></i>&nbsp;Add Medicine</a>
             </div>
-        </div>       
+        </div>
     </div>
-    
-    <!--List Medicine--> 
+
+   
     <table class="table table-bordered table-striped">
         <thead>
             <th>ID</th>
@@ -32,7 +35,7 @@
             <th>Action</th>
         </thead>
         <tbody>
-           
+
             <tr *ngFor="let medicineMaster of filteredMedicines  |
             paginate: { itemsPerPage: 3, currentPage: page }">
                 <td>{{medicineMaster.medicineId}}</td>
@@ -46,19 +49,82 @@
                 <td>{{medicineMaster.pricePerUnit}}</td>
                 <td>{{medicineMaster.dosage}}</td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-outline-info"
-                    (click) = "updateMedicine(medicineMaster)">
+                    <button type="button" class="btn btn-sm btn-outline-info" (click)="updateMedicine(medicineMaster)">
                         <i class="fa fa-edit"></i></button>
-                    
+
                 </td>
             </tr>
         </tbody>
     </table>
 
-    <!--Footer-->
     <div class="footer">
         <pagination-controls (pageChange)="page = $event" class="float-right"></pagination-controls>
     </div>
 
-</div>
+</div> -->
 
+<div class="container">
+    <!-- List Medicine -->
+    <div class="header">
+        <div class="row">
+            <!-- Search Medicine button -->
+            <div class="col-sm-8">
+                <input type="search" class="form-control custom-margin-search" placeholder="Search Text here"
+                    [(ngModel)]="searchTerm" (input)="filterMedicines()">
+            </div>
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="goBack()"
+                style="position: absolute; top: 10px; right: 10px;">
+                Back 
+            </button>
+            <!-- Add Medicine -->
+            <div class="col-sm-4">
+                <a [routerLink]="['/medicines/add']" role="button" class="btn btn-outline-primary custom-margin-add">
+                    <i class="fa fa-plus fa-lg"></i>&nbsp;Add Medicine</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- List Medicine -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Medicine Name</th>
+                <th>Generic Name</th>
+                <th>Manufacturer Name</th>
+                <th>Manufacturing Date</th>
+                <th>Expiry Date</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price Per Unit</th>
+                <th>Dosage</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medicineMaster of filteredMedicines | paginate: { itemsPerPage: 3, currentPage: page }">
+                <td>{{medicineMaster.medicineId}}</td>
+                <td>{{medicineMaster.medicineName}}</td>
+                <td>{{medicineMaster.genericName}}</td>
+                <td>{{medicineMaster.manufacturerName}}</td>
+                <td>{{medicineMaster.manufacturingDate}}</td>
+                <td>{{medicineMaster.expiryDate}}</td>
+                <td>{{medicineMaster.category}}</td>
+                <td>{{medicineMaster.quantity}}</td>
+                <td>{{medicineMaster.pricePerUnit}}</td>
+                <td>{{medicineMaster.dosage}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-info" (click)="updateMedicine(medicineMaster)">
+                        <i class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteMedicine(medicineMaster.medicineId)">
+                        <i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Footer -->
+    <div class="footer">
+        <pagination-controls (pageChange)="page = $event" class="float-right"></pagination-controls>
+    </div>
+</div>

@@ -9,9 +9,6 @@ export class Login {
     StaffId: number = 0;
 
 
-    Staff:Staff = new Staff();
-
-
 
     // Relationship
     Staff: Staff = new Staff();

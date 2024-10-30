@@ -1,4 +1,3 @@
-// File: patient-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Patient } from 'src/app/shared/patient';
@@ -31,18 +30,22 @@ export class PatientListComponent implements OnInit {
   filterPatients(): void {
     const term = this.searchTerm.toLowerCase();
     this.filteredPatients = this.receptionistService.patients.filter(patient => 
-      patient.patientName.toLowerCase().includes(term) ||  
-      patient.phoneNumber.includes(term)                   
+      patient.PatientName.toLowerCase().includes(term) ||  
+      patient.PhoneNumber.includes(term)                   
     );
   }
 
   bookAppointment(patientId: number): void {
-    // Pass patientId directly, no object wrapping
     this.router.navigate(['/patients/book-appointment', patientId]);
   }
 
   editPatient(patient: Patient): void {
     this.receptionistService.patient = Object.assign({}, patient);
-    this.router.navigate(['/patients/edit', patient.patientId]);
+    this.router.navigate(['/patients/edit', patient.PatientId]);
+  }
+
+  logout(): void {
+    // Redirect to the login page
+    window.location.href = "http://localhost:4200/auth/login";
   }
 }

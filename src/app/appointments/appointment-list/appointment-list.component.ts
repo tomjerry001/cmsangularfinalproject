@@ -79,6 +79,10 @@ filterAppointmentvm(): void {
 
    
   }
+  goBack(): void {
+    window.location.href = 'http://localhost:4200/auth/login';
+}
+
 }
 
 

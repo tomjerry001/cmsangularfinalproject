@@ -21,6 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { Patient } from '../shared/patient';
 import { PatientsModule } from '../patients/patients.module';
+import { AppointmentsModule } from '../appointments/appointments.module';
+import { MedicineModule } from '../medicine/medicine.module';
+import { TestModule } from '../test/test.module';
 
 
 @NgModule({
@@ -29,7 +32,11 @@ import { PatientsModule } from '../patients/patients.module';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    PatientsModule
+    PatientsModule,
+    AppointmentsModule,
+    MedicineModule,
+    TestModule
+    
   ]
 })
 export class AuthModule { }

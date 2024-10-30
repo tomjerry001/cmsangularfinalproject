@@ -1,14 +1,14 @@
 export class MedicinePrescription {
-    medicinePrescriptionId: number = 0;
-    appointmentId: number = 0;
-    quantity: number = 0;
+    medicinePrescriptionId: number ;
+    appointmentId: number;
+    quantity: number ;
     duration: string;
     notes: string;
-    prescriptionId: number = 0;
-    medicineId: number = 0;
+    prescriptionId: number ;
+    medicineId: number ;
     patientName: string;
     medicineName: string;
-    pricePerUnit: number=0;
+    pricePerUnit: number;
 // import { Appointment } from './appointment';
 // import { Prescription } from './prescription';
 

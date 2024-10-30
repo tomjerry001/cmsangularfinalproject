@@ -6,21 +6,20 @@ import { AuthComponent } from './auth/auth.component';
 import { StaffsComponent } from './staffs/staffs.component';
 import { DoctorsComponent } from './staffs/doctors.component';
 
-const routes: Routes = [
-  //Empty Route
-{path:'',redirectTo:'auth/home', pathMatch:'full'},
-
 import { MedicineComponent } from './medicine/medicine.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
 
+
 const routes: Routes = [
+  //Empty Route
+{path:'',redirectTo:'auth/home', pathMatch:'full'},
+
 
 
   // Empty Route (Redirect to login page)
   //{ path: 'appointments/list', component: AppointmentListComponent },
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-
+  
   // Authentication / Authorization (Lazy loading)
 //   {
 //     path: 'auth',component: AuthComponent,

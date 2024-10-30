@@ -1,14 +1,28 @@
-<div class="container">
-    <!--List Medicine Prescription-->
+<!-- <div class="container">
+
+
+
+
     <div class="header">
         <div class="row">
-            <!--Search Medicine button-->
+
+
+           
+
+
             <div class="col-sm-8">
                 <input type="search" class="form-control custom-margin-search" 
                 placeholder="Search Text here" [(ngModel)] = "searchTerm"
                 (input)="filterMedicinePrescriptions()"> 
             </div>
-            <!-- Medicine-->
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="goBack()"
+            style="position: absolute; top: 10px; right: 10px;">
+            LOGOUT
+        </button>
+
+
+
+
             <div class="col-sm-4">
                 <a [routerLink]="['/medicines/list']" role="button" class="btn btn-outline-primary custom-margin-add">
                     <i class="fa fa-plus fa-lg"></i>&nbsp; Medicines</a>
@@ -16,7 +30,10 @@
         </div>       
     </div>
     
-    <!--List Medicine Prescription--> 
+
+   
+
+
     <table class="table table-bordered table-striped">
         <thead>
             <th>ID</th>
@@ -45,11 +62,75 @@
         </tbody>
     </table>
 
-    <!--Footer-->
+
+ 
+
+    
     <div class="footer">
         <pagination-controls (pageChange)="page = $event" class="float-right"></pagination-controls>
     </div>
 
 </div>
 
+ -->
 
+ <div class="container">
+
+    <!--List Medicine Prescription-->
+
+    <div class="header">
+        <div class="row">
+
+            <!--Search Medicine button-->
+            <div class="col-sm-8">
+                <input type="search" class="form-control custom-margin-search" 
+                placeholder="Search Text here" [(ngModel)]="searchTerm"
+                (input)="filterMedicinePrescriptions()"> 
+            </div>
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="goBack()"
+            style="position: absolute; top: 10px; right: 10px;">
+                LOGOUT
+            </button>
+
+            <!-- Medicine-->
+            <div class="col-sm-4">
+                <a [routerLink]="['/medicines/list']" role="button" class="btn btn-outline-primary custom-margin-add">
+                    <i class="fa fa-plus fa-lg"></i>&nbsp; Medicines</a>
+            </div>
+        </div>       
+    </div>
+
+    <!--List Medicine Prescription--> 
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Patient Name</th>
+                <th>Medicine Name</th>
+                <th>Duration</th>
+                <th>Price Per Unit</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medicinePrescription of filteredMedicinePrescriptions | paginate: { itemsPerPage: 3, currentPage: page }">
+                <td>{{medicinePrescription.MedicinePrescriptionId}}</td>
+                <td>{{medicinePrescription.PatientName}}</td>
+                <td>{{medicinePrescription.MedicineName}}</td>
+                <td>{{medicinePrescription.Duration}}</td>
+                <td>{{medicinePrescription.PricePerUnit}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-info"
+                    (click)="getMedicinePrescriptionsByPatientAndAppointment(medicinePrescription)">
+                    <i class="fa fa-eye"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--Footer-->
+    <div class="footer">
+        <pagination-controls (pageChange)="page = $event" class="float-right"></pagination-controls>
+    </div>
+
+</div>

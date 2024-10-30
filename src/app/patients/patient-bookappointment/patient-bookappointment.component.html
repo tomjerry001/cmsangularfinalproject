@@ -21,10 +21,10 @@
     </div>
     <div class="form-group">
       <label>Doctor</label>
-      <select name="doctorId" id="doctorId" class="form-control"
+      <select name="DoctorId" id="DoctorId" class="form-control"
               [(ngModel)]="receptionistService.appointmentViewModel.doctorId" required>
         <option value="0" selected disabled>---Select Doctor---</option>
-        <option *ngFor="let doctor of receptionistService.doctors" [value]="doctor.doctorId">
+        <option *ngFor="let doctor of receptionistService.doctors" [value]="doctor.DoctorId">
           {{ doctor.DoctorName }}
         </option>
       </select>
